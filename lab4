@@ -1,109 +1,174 @@
-#include <stdio.h>
+using System;
+using System.Collections.Generic;
 
-// Система моделювання екосистеми
-typedef struct {
-    int енергія;
-    int вік;
-    int розмір;
-} ЖивийОрганізм;
-
-typedef struct {
-    ЖивийОрганізм базовий;
-    // Додаткові характеристики для Тварини
-    // ...
-} Тварина;
-
-typedef struct {
-    ЖивийОрганізм базовий;
-    // Додаткові характеристики для Рослини
-    // ...
-} Рослина;
-
-typedef struct {
-    ЖивийОрганізм базовий;
-    // Додаткові характеристики для Мікроорганізму
-    // ...
-} Мікроорганізм;
-
-typedef struct {
-    // Масив організмів
-    // ...
-} Екосистема;
-
-void взаємодія(Екосистема *екосистема) {
-    // Логіка взаємодії між організмами
-    // ...
+class LivingOrganism
+{
+    public double Energy { get; set; }
+    public int Age { get; set; }
+    public double Size { get; set; }
 }
 
-// Умовна комп'ютерна мережа
-typedef struct {
-    char *IP_адреса;
-    int потужність;
-    char *тип_ОС;
-} Компютер;
+class Animal : LivingOrganism, IReproducible, IPredator
+{
+    public string Species { get; set; }
 
-typedef struct {
-    Компютер базовий;
-    // Додаткові властивості для Сервера
-    // ...
-} Сервер;
+    public void Reproduce()
+    {
 
-typedef struct {
-    Компютер базовий;
-    // Додаткові властивості для Робочої станції
-    // ...
-} РобочаСтанція;
+    }
 
-typedef struct {
-    Компютер базовий;
-    // Додаткові властивості для Маршрутизатора
-    // ...
-} Маршрутизатор;
+    public void Hunt()
+    {
 
-typedef struct {
-    // Масив комп'ютерів
-    // ...
-} Мережа;
-
-void передачаДаних(Мережа *мережа) {
-    // Логіка передачі даних між комп'ютерами
-    // ...
+    }
 }
 
-// Система для моделювання та оптимізації трафіку у місті
-typedef struct {
-    int довжина;
-    int ширина;
-    int кількість_смуг;
-    int рівень_трафіку;
-} Дорога;
+class Plant : LivingOrganism, IReproducible
+{
+    public string Type { get; set; }
 
-typedef struct {
-    int швидкість;
-    int розмір;
-    char *тип;
-} ТранспортнийЗасіб;
-
-typedef struct {
-    ТранспортнийЗасіб *засіб;
-} ІмітаціяРуху;
-
-void імітуватиРух(ІмітаціяРуху *імітація) {
-    // Реалізувати імітацію руху транспортних засобів
-    // ...
+    public void Reproduce()
+    {
+  
+    }
 }
 
-typedef struct {
-    Дорога *дорога;
-    ІмітаціяРуху *імітація;
-} Симуляція;
+class Microorganism : LivingOrganism, IReproducible
+{
+    public string Genus { get; set; }
 
-void моделюватиТрафік(Симуляція *симуляція) {
-    // Реалізувати логіку моделювання руху та оптимізації трафіку
-    // ...
+    public void Reproduce()
+    {
+
+    }
 }
 
-int main() {
-    // Ваш код моделювання та взаємодії системи
-    return 0;
+interface IReproducible
+{
+    void Reproduce();
+}
+
+interface IPredator
+{
+    void Hunt();
+}
+
+class Ecosystem
+{
+    public void Interact(LivingOrganism organism1, LivingOrganism organism2)
+    {
+
+    }
+}
+
+class Computer
+{
+    public string IPAddress { get; set; }
+    public int Power { get; set; }
+    public string OS { get; set; }
+}
+
+class Server : Computer, IConnectable
+{
+    public void Connect(Computer target)
+    {
+
+    }
+
+    public void Disconnect(Computer target)
+    {
+
+    }
+}
+
+class Workstation : Computer, IConnectable
+{
+    public void Connect(Computer target)
+    {
+
+    }
+
+    public void Disconnect(Computer target)
+    {
+
+    }
+}
+
+class Router : Computer, IConnectable
+{
+    public void Connect(Computer target)
+    {
+
+    }
+
+    public void Disconnect(Computer target)
+    {
+
+    }
+}
+
+interface IConnectable
+{
+    void Connect(Computer target);
+    void Disconnect(Computer target);
+}
+
+class Network
+{
+    public void TransmitData(Computer sender, Computer receiver, string data)
+    {
+
+    }
+}
+
+class Road
+{
+    public double Length { get; set; }
+    public double Width { get; set; }
+    public int Lanes { get; set; }
+    public double TrafficLevel { get; set; }
+}
+
+class Vehicle : IDriveable
+{
+    public double Speed { get; set; }
+    public double Size { get; set; }
+    public string Type { get; set; }
+
+    public void Move()
+    {
+
+    }
+
+    public void Stop()
+    {
+
+    }
+}
+
+interface IDriveable
+{
+    void Move();
+    void Stop();
+}
+
+class Simulation
+{
+    public void SimulateTraffic(Road road, Vehicle[] vehicles)
+    {
+
+    }
+
+    public void OptimizeTraffic(Road road, Vehicle[] vehicles)
+    {
+
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+
+    }
 }
